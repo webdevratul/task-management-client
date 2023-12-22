@@ -53,7 +53,7 @@ const Provider = ({ children }) => {
         }
     }, []);
 
-    const Info = { createUser, signIn, googleSignIn, user, loading, logOut, profileUpdate }
+    const Info = { createUser, signIn, googleSignIn, user, loading, logOut, profileUpdate, setLoading }
 
     return (
         <Context.Provider value={Info}>

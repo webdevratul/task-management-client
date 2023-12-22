@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const Regsiter = () => {
 
     const { createUser, profileUpdate } = useContext(Context);
-    const [registerError, setRegisterError] = useState("");
+    const [registerError, setRegisterError, setLoading] = useState("");
     const navigate = useNavigate();
 
 
@@ -33,7 +33,7 @@ const Regsiter = () => {
                     if (result.user) {
                         profileUpdate(name, photo);
                         const user = { name, email, photo, userRole };
-                        fetch("http://localhost:200/register", {
+                        fetch("https://task-management-server-gules.vercel.app/register", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
@@ -54,6 +54,7 @@ const Regsiter = () => {
                                     });
                                     e.target.reset();
                                     navigate("/");
+                                    setLoading(false);
                                 }
                             })
                     }
